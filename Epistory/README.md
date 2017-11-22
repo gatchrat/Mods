@@ -8,6 +8,7 @@ A mod which resets all word progress when you mistype.
 ### Changes:
 
 Added to TYPING_MANAGER.update() after this.OnMisType():
+```
 this.PotentialSwitchArray.Clear();
 HashSet<INTERACTABLE_TEXT>.Enumerator enumeratora = this.ActiveTextArray.GetEnumerator();
 while (enumeratora.MoveNext())
@@ -23,4 +24,4 @@ while (enumeratora.MoveNext())
 	}
 }
 
-
+```
