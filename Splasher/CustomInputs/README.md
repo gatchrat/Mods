@@ -4,8 +4,10 @@ How to use:
 2. Create an Input.txt file and place it under ...\SteamLibrary\steamapps\common\Splasher\Splasher_Data\
 The .txt needs to consist of 5 lines :
 
-* Jump-Liquids-Key 
+* Jump-Key 
 * Blue-Liquid-Key 
 * Red-Liquid-Key 
 * Yellow-Liquid-Key 
 * Random Key 
+
+You can use the provided .txt file as an Example.
