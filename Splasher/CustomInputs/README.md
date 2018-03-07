@@ -10,4 +10,5 @@ The .txt needs to consist of 5 lines :
 * Yellow-Liquid-Key 
 * Random Key 
 
+All Keys need to be uppercase.
 You can use the provided .txt file as an Example.
