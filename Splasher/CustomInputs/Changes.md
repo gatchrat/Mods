@@ -112,32 +112,34 @@ public bool getButton(InputGamepadButton button)
 		{
 			return Input.GetAxisRaw(AxisName + "_PS4");
 		}
-		if(Input.GetJoystickNames().Length > 0){
-				return Input.GetAxisRaw(AxisName + (((LanguageMgr.GetLangEnum() == GameLanguages.French && !InputGamePadMgr.ForceWASD) || (!(AxisName == "Vertical") && !(AxisName == "Horizontal"))) ? string.Empty : "_QW"));
-
+		if (AxisName == "Vertical")
+		{
+			if (Input.GetKey(KeyCode.DownArrow) || (Input.GetKey(KeyCode.S) && KeyCode.S != PlayerController.Blue && KeyCode.S != PlayerController.Yellow && KeyCode.S != PlayerController.Jump && KeyCode.S != PlayerController.Red))
+			{
+				return 1f;
+			}
+			if (Input.GetKey(KeyCode.UpArrow) || (Input.GetKey(KeyCode.W) && KeyCode.W != PlayerController.Blue && KeyCode.W != PlayerController.Yellow && KeyCode.W != PlayerController.Jump && KeyCode.W != PlayerController.Red))
+			{
+				return -1f;
+			}
+			return 0f;
 		}
-		else if(AxisName == "Vertical"){
-				if(Input.GetKeyDown(KeyCode.DownArrow)){
-					return 1;
-					}
-				else if(Input.GetKeyDown(KeyCode.UpArrow)){
-						return -1;
-					}
-				else{
-					 return 0;
-					}
+		else
+		{
+			if (Input.GetKey(KeyCode.LeftArrow) || (Input.GetKey(KeyCode.A) && KeyCode.A != PlayerController.Blue && KeyCode.A != PlayerController.Yellow && KeyCode.A != PlayerController.Jump && KeyCode.A != PlayerController.Red))
+			{
+				return 1f;
 			}
-		else{
-				if(Input.GetKeyDown(KeyCode.LeftArrow)){
-					return 1;
-					}
-				else if(Input.GetKeyDown(KeyCode.RightArrow)){
-						return -1;
-					}
-				else{
-					 return 0;
-					}
+			if (Input.GetKey(KeyCode.RightArrow) || (Input.GetKey(KeyCode.D) && KeyCode.D != PlayerController.Blue && KeyCode.D != PlayerController.Yellow && KeyCode.D != PlayerController.Jump && KeyCode.D != PlayerController.Red))
+			{
+				return -1f;
 			}
+			return 0f;
+		}
+		if (Input.GetJoystickNames().Length != 0)
+		{
+			return Input.GetAxisRaw(AxisName + (((LanguageMgr.GetLangEnum() == GameLanguages.French && !InputGamePadMgr.ForceWASD) || (!(AxisName == "Vertical") && !(AxisName == "Horizontal"))) ? string.Empty : "_QW"));
+		}
 	}
 }
 ```
