@@ -1,5 +1,11 @@
 Added to PlayerController:
 ```C#
+	using System.IO;
+```
+
+
+
+```C#
 public bool getButton(InputGamepadButton button)
 {
 	if (InputGamePadMgr.rewired == null)
